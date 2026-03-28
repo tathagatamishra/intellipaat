@@ -31,7 +31,36 @@
 
 </br>
 
-## 2) Core SQL Statements
+## 2) TCL - Transaction Control Language
+
+TCL commands manage transactions, allowing you to save or undo a group of DML changes as a single unit.
+
+| Command           | Purpose                                        | Notes                                              |
+|-------------------|------------------------------------------------|----------------------------------------------------|
+| `COMMIT`          | Permanently saves all changes in a transaction | Changes become visible to other users after commit |
+| `ROLLBACK`        | Undoes all changes made since the last commit  | Reverts to the last committed state                |
+| `SAVEPOINT`       | Sets a named checkpoint within a transaction   | Allows partial rollback to that point              |
+| `SET TRANSACTION` | Configures transaction properties              | e.g., isolation level                              |
+
+### Example
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE Employees SET Salary = Salary + 5000 WHERE DepartmentID = 2;
+
+-- If something goes wrong:
+ROLLBACK;
+
+-- If everything looks good:
+COMMIT;
+```
+
+---
+
+</br>
+
+## 3) Core SQL Statements
 
 | Statement                      | Syntax Pattern                                      | What it does               | Notes from the sessions                                               |
 |--------------------------------|-----------------------------------------------------|----------------------------|-----------------------------------------------------------------------|
@@ -52,7 +81,7 @@
 
 </br>
 
-## 3) SQL Data Types
+## 4) SQL Data Types
 
 | Type Group | Data Type       | Meaning / Use               | Notes                                 |
 |------------|-----------------|-----------------------------|---------------------------------------|
@@ -75,7 +104,7 @@
 
 </br>
 
-## 4) Constraints
+## 5) Constraints
 
 | Constraint    | Purpose                                            | Example / Behavior                                                            |
 |---------------|----------------------------------------------------|-------------------------------------------------------------------------------|
@@ -90,7 +119,7 @@
 
 </br>
 
-## 5) Operators and Predicates
+## 6) Operators and Predicates
 
 | Type             | Operators / Keywords                  | Purpose                 | Example                                 |
 |------------------|---------------------------------------|-------------------------|-----------------------------------------|
@@ -106,7 +135,7 @@
 
 </br>
 
-## 6) JOINs and Relationships
+## 7) JOINs and Relationships
 
 | Join Type              | Result                                                    | Notes                                     |
 |------------------------|-----------------------------------------------------------|-------------------------------------------|
@@ -131,7 +160,7 @@ ON TableA.key = TableB.key;
 
 </br>
 
-## 7) Aggregate and Grouping Features
+## 8) Aggregate and Grouping Features
 
 | Feature    | Purpose                              | Example                               |
 |------------|--------------------------------------|---------------------------------------|
@@ -149,7 +178,7 @@ ON TableA.key = TableB.key;
 
 </br>
 
-## 8) Window Functions
+## 9) Window Functions
 
 | Function       | Purpose                      | Important Syntax Note     |
 |----------------|------------------------------|---------------------------|
@@ -169,7 +198,7 @@ FROM UserData;
 
 </br>
 
-## 9) String Functions
+## 10) String Functions
 
 | Function      | Purpose                             | Example                      |
 |---------------|-------------------------------------|------------------------------|
@@ -189,7 +218,7 @@ FROM UserData;
 
 </br>
 
-## 10) Date and Time Functions
+## 11) Date and Time Functions
 
 | Function     | Purpose                                 | Example                            |
 |--------------|-----------------------------------------|------------------------------------|
@@ -206,7 +235,7 @@ FROM UserData;
 
 </br>
 
-## 11) Numeric / Mathematical Functions
+## 12) Numeric / Mathematical Functions
 
 | Function    | Purpose                  | Example            |
 |-------------|--------------------------|--------------------|
@@ -220,7 +249,7 @@ FROM UserData;
 
 </br>
 
-## 12) Conditional / Utility Functions
+## 13) Conditional / Utility Functions
 
 | Function     | Purpose                           | Example                                                |
 |--------------|-----------------------------------|--------------------------------------------------------|
@@ -234,7 +263,7 @@ FROM UserData;
 
 </br>
 
-## 13) User-Defined Functions (UDF)
+## 14) User-Defined Functions (UDF)
 
 | Type                  | Meaning                | Notes                                              |
 |-----------------------|------------------------|----------------------------------------------------|
@@ -258,7 +287,7 @@ END
 
 </br>
 
-## 14) Views, Subqueries, Temp Tables, Procedures
+## 15) Views, Subqueries, Temp Tables, Procedures
 
 | Topic                         | Meaning                            | Notes                                   |
 |-------------------------------|------------------------------------|-----------------------------------------|
@@ -282,7 +311,7 @@ CREATE TABLE #StudentInfo (
 
 </br>
 
-## 15) Set Operators
+## 16) Set Operators
 
 | Operator    | Purpose                                     | Behavior           |
 |-------------|---------------------------------------------|--------------------|
@@ -302,7 +331,7 @@ CREATE TABLE #StudentInfo (
 
 </br>
 
-## 16) Triggers and Indexes
+## 17) Triggers and Indexes
 
 | Topic                | Purpose                            | Notes                                                   |
 |----------------------|------------------------------------|---------------------------------------------------------|
@@ -326,13 +355,33 @@ END
 ```sql
 CREATE NONCLUSTERED INDEX IndexName
 ON TableName(ColumnName);
+
+-- Drop an index
+DROP INDEX IndexName ON TableName;
 ```
+
+### `FOR` vs `AFTER` in DDL Triggers
+
+In DDL triggers, `FOR` and `AFTER` behave identically. There is no functional difference. `FOR` is the conventional choice for DDL triggers purely for clarity and consistency.
+
+```sql
+-- These two are equivalent:
+CREATE TRIGGER TriggerCreateMsg ON DATABASE FOR CREATE_TABLE AS BEGIN PRINT 'created' END;
+CREATE TRIGGER TriggerCreateMsg ON DATABASE AFTER CREATE_TABLE AS BEGIN PRINT 'created' END;
+```
+
+### ![!](https://dummyimage.com/14/ffd230/white?text=!) &nbsp; `PRINT` vs `SELECT` inside Triggers
+
+| Statement  | Recommended | Notes                                                                       |
+|------------|-------------|-----------------------------------------------------------------------------|
+| `PRINT`    | Yes         | Sends a message to the messages tab                                         |
+| `SELECT`   | Not ideal   | Returns a result set, which can cause unexpected behaviour inside a trigger |
 
 ---
 
 </br>
 
-## 17) Operators for Data Reshaping and Special Techniques
+## 18) Operators for Data Reshaping and Special Techniques
 
 | Topic     | Purpose                    | Notes                                 |
 |-----------|----------------------------|---------------------------------------|
@@ -343,7 +392,7 @@ ON TableName(ColumnName);
 
 </br>
 
-## 18) Quick SQL Examples from the Notes
+## 19) Quick SQL Examples from the Notes
 
 | Goal                            | Example                                                                                                            |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -360,7 +409,7 @@ ON TableName(ColumnName);
 
 </br>
 
-## 19) Important Syntax Reminders
+## 20) Important Syntax Reminders
 
 | Topic               | Reminder                                                                        |
 |---------------------|---------------------------------------------------------------------------------|
