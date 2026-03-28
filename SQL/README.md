@@ -133,17 +133,17 @@ ON TableA.key = TableB.key;
 
 ## 7) Aggregate and Grouping Features
 
-| Feature | Purpose | Example |
-|---|---|---|
-| `SUM()` | Adds values | `SUM(Salary)` |
-| `MAX()` | Highest value | `MAX(Salary)` |
-| `MIN()` | Lowest value | `MIN(Salary)` |
-| `AVG()` | Average value | `AVG(Salary)` |
-| `COUNT()` | Counts rows | `COUNT(*)` |
-| `GROUP BY` | Groups rows for aggregation | `GROUP BY DepartmentName` |
-| `HAVING` | Filters grouped results | `HAVING SUM(Salary) > 50000` |
-| `ROLLUP` | Hierarchical subtotals + grand total | `GROUP BY ROLLUP(continent, country)` |
-| `CUBE` | All grouping combinations | `GROUP BY CUBE(continent, country)` |
+| Feature    | Purpose                              | Example                               |
+|------------|--------------------------------------|---------------------------------------|
+| `SUM()`    | Adds values                          | `SUM(Salary)`                         |
+| `MAX()`    | Highest value                        | `MAX(Salary)`                         |
+| `MIN()`    | Lowest value                         | `MIN(Salary)`                         |
+| `AVG()`    | Average value                        | `AVG(Salary)`                         |
+| `COUNT()`  | Counts rows                          | `COUNT(*)`                            |
+| `GROUP BY` | Groups rows for aggregation          | `GROUP BY DepartmentName`             |
+| `HAVING`   | Filters grouped results              | `HAVING SUM(Salary) > 50000`          |
+| `ROLLUP`   | Hierarchical subtotals + grand total | `GROUP BY ROLLUP(continent, country)` |
+| `CUBE`     | All grouping combinations            | `GROUP BY CUBE(continent, country)`   |
 
 ---
 
