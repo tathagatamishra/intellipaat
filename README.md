@@ -11,7 +11,7 @@ Personal notes, hands-on exercises, and resources from the Intellipaat Data Scie
 - Python 3.13.12
 - Mini Anaconda CLI
 - VSCode
-- Environment name --> `intellipaat` (conda)
+- Environment name --> `intellipaat`
 
 ## Core Packages
 
@@ -28,7 +28,7 @@ Personal notes, hands-on exercises, and resources from the Intellipaat Data Scie
 
 ```bash
 # Step 1: Clone
-git clone https://github.com/yourusername/intellipaat.git
+git clone https://github.com/tathagatamishra/intellipaat.git
 cd intellipaat
 
 # Step 2: Recreate environment, it auto install all packages

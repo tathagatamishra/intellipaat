@@ -3,7 +3,7 @@
 There are multiple way to use Anaconda and Jupyter Notebook
 
 - Easy and quick way is to just use the Anaconda Cloud
-  - https://www.anaconda.com/app
+  - <https://www.anaconda.com/app>
   - Just sign up and you are ready
 
 ---
@@ -81,17 +81,17 @@ There are multiple way to use Anaconda and Jupyter Notebook
   - `conda info --envs`
 
 - Step 5: Activate current environment
-  - `conda activate intellipaat`
+  - `conda activate my-env-name`
 
 - Step 6: Installing ML packages
   - `conda install -c conda-forge numpy pandas matplotlib seaborn scikit-learn jupyterlab notebook ipykernel -y`
     - Total: 555.2 MB
 
 - Step 7: Rename kernel
-  - `python -m ipykernel install --user --name intellipaat --display-name "Python (intellipaat)"`
+  - `python -m ipykernel install --user --name new_folder_name --display-name "my_kernel_name"`
   - naming our kernel to identify in Jupyter while creating notebook
     - information stored in
-      - C:\Users\user_name\AppData\Roaming\jupyter\kernels\intellipaat\kernel.json
+      - C:\Users\user_name\AppData\Roaming\jupyter\kernels\new_folder_name\kernel.json
 
 - Step 8: Verify everything installed correctly
   - `python -c "import numpy, pandas, sklearn, matplotlib, seaborn; print('All good!')"`
@@ -99,7 +99,7 @@ There are multiple way to use Anaconda and Jupyter Notebook
 - Step 9: Open VSCode
   - `Ctrl+Shift+P` ⟶ `Python: Select Interpreter` ⟶ itellipaat (3.13.12) Conda
   - OR
-  - Open VSCode terminal ⟶ `conda activate intellipaat`
+  - Open VSCode terminal ⟶ `conda activate my-env-name`
 
 - Step 10: Open Jupyter Lab on Browser
   - `jupyter lab`
@@ -111,7 +111,8 @@ There are multiple way to use Anaconda and Jupyter Notebook
 
 - Step 12: Now others can reuse my setup
   - `conda env create -f environment.yml`
-  - `conda activate intellipaat`
+  - `conda activate my-env-name`
+  - `python -m ipykernel install --user --name new_folder_name --display-name "my_kernel_name"`
 
 - Step 13: Deactivate the currently running env
   - `conda deactivate`
@@ -129,7 +130,7 @@ There are multiple way to use Anaconda and Jupyter Notebook
 
 ```bash
 # Step 1: Clone
-git clone https://github.com/yourusername/intellipaat.git
+git clone https://github.com/tathagatamishra/intellipaat.git
 cd intellipaat
 
 # Step 2: Recreate environment, it auto install all packages
