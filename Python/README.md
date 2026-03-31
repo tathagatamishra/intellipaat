@@ -1,8 +1,20 @@
 # Anaconda
 
+There are multiple way to use Anaconda and Jupyter Notebook
+
+- Easy and quick way is to just use the Anaconda Cloud
+  - https://www.anaconda.com/app
+  - Just sign up and you are ready
+
+---
+
+</br>
+
 ## My Setup
 
-### I Am Using
+### I Am Using Mini Anaconda
+
+![!](https://dummyimage.com/14/ffd230/white?text=!) &nbsp;  Mini ≠ Mini, Mini = Freedom
 
 - Python 3.13.12
 - Mini Anaconda CLI
