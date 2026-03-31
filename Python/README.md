@@ -1,5 +1,7 @@
 # Anaconda
 
+## My Setup
+
 ### I Am Using
 
 - Python 3.13.12
@@ -8,7 +10,7 @@
 
 ---
 
-### Steps
+### Conda Steps
 
 - Step 1: Open Anaconda Prompt
 
@@ -87,15 +89,48 @@
   - OR
   - Open VSCode terminal ⟶ `conda activate intellipaat`
 
-- Step 10: Sava Snapshot of current environment
+- Step 10: Open Jupyter Lab on Browser
+  - `jupyter lab`
+
+### Extra Steps
+
+- Step 11: Sava Snapshot of current environment
   - `conda env export > environment.yml`
 
-- Step 11: Now others can reuse my setup
+- Step 12: Now others can reuse my setup
   - `conda env create -f environment.yml`
   - `conda activate intellipaat`
 
-- Step 11: Deactivate the currently running env
+- Step 13: Deactivate the currently running env
   - `conda deactivate`
 
-- Step 12: Delete a env
+- Step 14: Delete a env
   - `conda env remove -n env-name`
+
+</br>
+
+---
+
+</br>
+
+## Steps to reuse my setup
+
+```bash
+# Step 1: Clone
+git clone https://github.com/yourusername/intellipaat.git
+cd intellipaat
+
+# Step 2: Recreate environment, it auto install all packages
+conda env create -f environment.yml
+
+# Step 3: Activate
+conda activate intellipaat
+
+# Step 4: Register Jupyter kernel
+python -m ipykernel install --user --name intellipaat --display-name "Python (intellipaat)"
+
+# Step 5: Done! Launch Jupyter
+jupyter lab
+```
+
+---
