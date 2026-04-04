@@ -147,3 +147,13 @@ jupyter lab
 ```
 
 ---
+
+</br>
+
+## What to do now
+
+- Open terminal in vscode
+- do `conda activate intellipaat`
+- create new `.ipynb` file
+- in the new ipynb at the top right corner click select kernel
+- select `intellipaat (Python 3.13.12)`
